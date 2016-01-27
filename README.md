@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nfabbiane/flowbeamer.svg?branch=master)](https://travis-ci.org/jcanton/mechthesis/builds)
+[![Build Status](https://travis-ci.org/nfabbiane/flowbeamer.svg?branch=master)](https://travis-ci.org/nfabbiane/flowbeamer/builds)
 [![Coverage Status](https://coveralls.io/repos/github/nfabbiane/flowbeamer/badge.svg?branch=master)](https://coveralls.io/github/jcanton/mechthesis?branch=master)
 
 # Linné FLOW Centre beamer template
