@@ -3,7 +3,7 @@
 
 # Linné FLOW Centre beamer template
 
-Jacopo Canton, Nicolo` Fabbiane (in alphabetical order)<br /> 
+Jacopo Canton, Nicolò Fabbiane (in alphabetical order)<br /> 
 January, 2016
 
 
