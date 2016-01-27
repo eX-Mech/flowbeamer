@@ -16,11 +16,6 @@ A Makefile has been developed for this template and tested for 'pdflatex' and
  - clean:        clean auxiliary files
 
 
-## USE OF THE TEMPLATE
-
-### Frame of reference
-
-
 We decline any responsibility for the usage of this template including bugs,
 bed-bugs, formatting errors, unhappy advisors, Justin Bieber and death; not 
 necessarily in this order.
