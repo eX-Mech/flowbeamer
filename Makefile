@@ -47,5 +47,5 @@ $(AUXS): $(SRCS)
 	@$(BIB) $(BIB_FLAGS) $(basename $@) #> /dev/null
 #
 clean:
-	@echo cleaning thesis
+	@echo cleaning $(main)
 	@rm -f *.ps *.dvi *.aux *.toc *.log *.out *.bbl *.blg *.nav *.snm *~ *.syntex.gz
