@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------
-# This is a makefile tailored to work on the latex documents for the
-# Licentiate and PhD thesis (MechThesis).
+# This is a makefile tailored to work on the latex documents for the beamer
+# FLOW template.
 #------------------------------------------------------------------------------
 
 
