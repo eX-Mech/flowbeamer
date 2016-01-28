@@ -8,4 +8,5 @@
 *.blg
 *~
 *.swp
+\#*
 .DS_Store
