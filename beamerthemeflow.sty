@@ -26,6 +26,8 @@
 	\gdef\insertcvrimg{\node[anchor=center] (coverimage) at (page cs:#1,#2) {#3};}%
 }
 
+
+\newif\ifcrappywave     \crappywavetrue
 \newif\ifdateinfootline \dateinfootlinefalse
 \newif\ifcenteredlogos  \centeredlogosfalse
 \newif\ifcleanslides    \cleanslidesfalse
@@ -191,30 +193,56 @@
 		\pgfmathsetmacro{\ymax}{.050}
 		\pgfmathsetmacro{\ymin}{.035}
 		%
-		\node[xshift=-.100\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
-		\node[xshift= .000\paperwidth,yshift=  .016\paperheight] (waveB) at (current page.south west) {};
-		%
-		\node[xshift= .145\paperwidth,yshift=  .016\paperheight] (waveC) at (current page.south west) {};
-		\node[xshift= .330\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
-		\node[xshift= .430\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
-		\node[xshift= .630\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
-		\node[xshift= .730\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
-		\node[xshift= .930\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
-		\node[xshift=1.030\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
-		%
-		\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
-		%
-		\path[fill=beamer@blendedblue]
-		(waveA) to [out= 90,in=180]
-		(waveB) to [out=-12,in=192]
-		(waveC) to [out= 12,in=180]
-		(waveD) to [out=  0,in=180] % max
-		(waveE) to [out=  0,in=180]
-		(waveF) to [out=  0,in=180] % max
-		(waveG) to [out=  0,in=180]
-		(waveH) to [out=  0,in=180] % max
-		(waveI) to [out=  0,in=180]
-		(waveZ);
+		\ifcrappywave
+			\node[xshift=-.180\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
+			\node[xshift=-.030\paperwidth,yshift= \ymax\paperheight] (waveB) at (current page.south west) {};
+			\node[xshift= .120\paperwidth,yshift= \ymin\paperheight] (waveC) at (current page.south west) {};
+			\node[xshift= .270\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
+			\node[xshift= .420\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
+			\node[xshift= .570\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
+			\node[xshift= .720\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
+			\node[xshift= .870\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
+			\node[xshift=1.020\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
+			%
+			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
+			%
+			\path[fill=beamer@blendedblue]
+			(waveA) to [out= 90,in=180]
+			(waveB) to [out=  0,in=180] % max
+			(waveC) to [out=  0,in=180]
+			(waveD) to [out=  0,in=180] % max
+			(waveE) to [out=  0,in=180]
+			(waveF) to [out=  0,in=180] % max
+			(waveG) to [out=  0,in=180]
+			(waveH) to [out=  0,in=180] % max
+			(waveI) to [out=  0,in=180]
+			(waveZ);
+		\else
+			\node[xshift=-.100\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
+			\node[xshift= .000\paperwidth,yshift=  .016\paperheight] (waveB) at (current page.south west) {};
+			%
+			\node[xshift= .145\paperwidth,yshift=  .016\paperheight] (waveC) at (current page.south west) {};
+			\node[xshift= .330\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
+			\node[xshift= .430\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
+			\node[xshift= .630\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
+			\node[xshift= .730\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
+			\node[xshift= .930\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
+			\node[xshift=1.030\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
+			%
+			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
+			%
+			\path[fill=beamer@blendedblue]
+			(waveA) to [out= 90,in=180]
+			(waveB) to [out=-12,in=192]
+			(waveC) to [out= 12,in=180]
+			(waveD) to [out=  0,in=180] % max
+			(waveE) to [out=  0,in=180]
+			(waveF) to [out=  0,in=180] % max
+			(waveG) to [out=  0,in=180]
+			(waveH) to [out=  0,in=180] % max
+			(waveI) to [out=  0,in=180]
+			(waveZ);
+		\fi
 		%
 		\ifdateinfootline%
 			%
@@ -229,9 +257,15 @@
 			%
 			% AUTHOR TITLE -- FRAME #
 			\node[anchor=south east] (foottext) at (current page.south east) {%
-				\begin{beamercolorbox}[wd=.760\paperwidth]{footext}%
-					\flushright{{\color{white}\scriptsize~\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
-				\end{beamercolorbox}%
+				\ifcrappywave
+					\begin{beamercolorbox}[wd=\paperwidth]{footext}%
+						\flushright{{\color{white}\scriptsize\hspace{4pt}\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+					\end{beamercolorbox}%
+				\else
+					\begin{beamercolorbox}[wd=.760\paperwidth]{footext}%
+						\flushright{{\color{white}\scriptsize~\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+					\end{beamercolorbox}%
+				\fi
 			};%
 			%
 		\fi
@@ -261,7 +295,11 @@
 		   \node[anchor=north west, xshift= .015\paperwidth,yshift= -.003\paperheight] (logot) at (current page.north west) {\insertlogot};%
 			%
 			% LOGO bottom
-			\node[anchor=south west, xshift= .015\paperwidth,yshift=  .004\paperheight] (logob) at (current page.south west) {\insertlogob};%
+			\ifcrappywave
+				\node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymax\paperheight] (logob) at (current page.south west) {\insertlogob};%
+			\else
+				\node[anchor=south west, xshift= .015\paperwidth,yshift=  .004\paperheight] (logob) at (current page.south west) {\insertlogob};%
+			\fi
 			%
 			% LOGO corner
 		   \node[anchor=north east, xshift=-.015\paperwidth,yshift= -.003\paperheight] (logot) at (current page.north east) {\insertlogoc};%
