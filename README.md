@@ -7,11 +7,11 @@ January, 2016
 
 
 ## COMPILE
-A Makefile has been developed for this template and tested for 'pdflatex' and
-'lualatex'. The options implemented are:
+A Makefile has been developed for this template and tested for `pdflatex` and
+`lualatex`. The options implemented are:
 
- - all(default): compile the whole package (BibTeX included)
- - clean:        clean all auxiliary files (except the pdf)
+ - `all`(default): compile the whole package (BibTeX included)
+ - `clean`:        clean all auxiliary files (except the pdf)
 
 
 We decline any responsibility for the usage of this template including bugs,
