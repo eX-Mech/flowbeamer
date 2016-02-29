@@ -117,6 +117,9 @@
 		%
 		\pgfmathsetmacro{\xshifttt}{.050}
 		%
+		% COVER IMAGE
+		\insertcvrimg%
+		%
 		% TITLE
 		\node[anchor=south,xshift=-\xshifttt\paperwidth] (title) at (current page.center) {
 			\begin{beamercolorbox}[wd=\textwidth]{title page header}%
@@ -134,9 +137,6 @@
 				\usebeamerfont{normal text}\scriptsize\textit{\insertinstitute}%
 			\end{beamercolorbox}%
 		};
-		%
-		% COVER IMAGE
-		\insertcvrimg%
 		%
 	\end{tikzpicture}
 }%
