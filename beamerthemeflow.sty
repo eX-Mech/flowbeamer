@@ -17,9 +17,15 @@
 %------------------------------------------------------------------------------
 % Definitions
 %
-\def\insertlogot{}\def\logot#1{\gdef\insertlogot{#1}} % Top logo
-\def\insertlogob{}\def\logob#1{\gdef\insertlogob{#1}} % Bottom logo
-\def\insertlogoc{}\def\logoc#1{\gdef\insertlogoc{#1}} % Corner logo
+\def\logot#1{\gdef\insertlogot{#1}}                % Top logo
+\def\logob#1{\gdef\insertlogob{#1}}                % Bottom logo
+\def\logoc{\@ifnextchar [{\@logoctwo}{\@logocone}} % Corner logo
+\def\@logoctwo[#1]#2{%
+  \gdef\insertlogoc{#2}\gdef\insertheaderlogoc{#1}%
+}%
+\def\@logocone#1{%
+  \gdef\insertlogoc{#1}\gdef\insertheaderlogoc{#1}%
+}%
 %
 % Cover image
 \def\insertcvrimg{}\def\cvrimg#1#2#3{%
@@ -302,7 +308,7 @@
 			\fi
 			%
 			% LOGO corner
-		   \node[anchor=north east, xshift=-.015\paperwidth,yshift= -.003\paperheight] (logot) at (current page.north east) {\insertlogoc};%
+		   \node[anchor=north east, xshift=-.015\paperwidth,yshift= -.003\paperheight] (logot) at (current page.north east) {\insertheaderlogoc};%
 			%
 		\fi%
 	\end{tikzpicture}%
