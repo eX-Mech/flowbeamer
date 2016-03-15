@@ -41,7 +41,18 @@
 %------------------------------------------------------------------------------
 % Colors
 %
-\definecolor{beamer@blendedblue}{rgb}{0.101960784313725,0.329411764705882,0.650980392156863} % KTH blue
+\definecolor{beamer@blendedblue}{RGB}{25.0,84.0,166.0} % == KTH blue
+
+\definecolor{beamer@kthblue}{RGB}{25.0,84.0,166.0}
+\definecolor{beamer@kthdarkgray}{RGB}{101.0,101.0,108.0}
+\definecolor{beamer@kthmiddlegray}{RGB}{189.0,188.0,188.0}
+\definecolor{beamer@kthlightgray}{RGB}{227.0,229.0,227.0}
+
+\definecolor{beamer@blue1}{RGB}{0.0,98.0,174.0}
+\definecolor{beamer@blue2}{RGB}{46.0,123.0,192.0}
+\definecolor{beamer@blue3}{RGB}{112.0,153.0,208.0}
+\definecolor{beamer@blue4}{RGB}{164.0,185.0,225.0}
+\definecolor{beamer@blue5}{RGB}{210.0,219.0,241.0}
 
 %\setbeamercolor{palette primary}  {fg=black, bg=NavyBlue!35}
 %\setbeamercolor{palette secondary}{fg=white, bg=NavyBlue!60}
@@ -50,9 +61,9 @@
 \setbeamercolor{frametitle}       {fg=black, bg=white}
 %\setbeamercolor{block title}      {fg=NavyBlue!90, bg=gray!30}
 %\setbeamercolor{block body}       {fg=black,  bg=gray!30}
-\setbeamercolor{alerted text}     {fg=beamer@blendedblue, bg=white}
+\setbeamercolor{alerted text}     {fg=beamer@kthblue, bg=white}
 
-\newcommand{\textblu}[1]{{\color{beamer@blendedblue}#1}}
+\newcommand{\textblu}[1]{{\color{beamer@kthblue}#1}}
 \newcommand{\textred}[1]{{\color{RedOrange}#1}}
 \newcommand{\textora}[1]{{\color{BurntOrange}#1}}
 \newcommand{\textgre}[1]{{\color{OliveGreen}#1}}
@@ -212,7 +223,7 @@
 			%
 			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
 			%
-			\path[fill=beamer@blendedblue]
+			\path[fill=beamer@kthblue]
 			(waveA) to [out= 90,in=180]
 			(waveB) to [out=  0,in=180] % max
 			(waveC) to [out=  0,in=180]
@@ -237,7 +248,7 @@
 			%
 			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
 			%
-			\path[fill=beamer@blendedblue]
+			\path[fill=beamer@kthblue]
 			(waveA) to [out= 90,in=180]
 			(waveB) to [out=-12,in=192]
 			(waveC) to [out= 12,in=180]
