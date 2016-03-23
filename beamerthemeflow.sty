@@ -33,6 +33,7 @@
 }
 
 
+\newif\ifkthofficial    \kthofficialfalse
 \newif\ifcrappywave     \crappywavetrue
 \newif\ifdateinfootline \dateinfootlinefalse
 \newif\ifcenteredlogos  \centeredlogosfalse
@@ -201,66 +202,88 @@
 %
 \defbeamertemplate*{footline}{flow}[1][]%
 {%
+  %
 	\ifcleanslides
 	\else
 	\begin{tikzpicture}[remember picture, overlay]%
-		%
-		% WAVES
-		%
-		\pgfmathsetmacro{\ymax}{.050}
-		\pgfmathsetmacro{\ymin}{.035}
-		%
-		\ifcrappywave
-			\node[xshift=-.180\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
-			\node[xshift=-.030\paperwidth,yshift= \ymax\paperheight] (waveB) at (current page.south west) {};
-			\node[xshift= .120\paperwidth,yshift= \ymin\paperheight] (waveC) at (current page.south west) {};
-			\node[xshift= .270\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
-			\node[xshift= .420\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
-			\node[xshift= .570\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
-			\node[xshift= .720\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
-			\node[xshift= .870\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
-			\node[xshift=1.020\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
-			%
-			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
-			%
-			\path[fill=beamer@kthblue]
-			(waveA) to [out= 90,in=180]
-			(waveB) to [out=  0,in=180] % max
-			(waveC) to [out=  0,in=180]
-			(waveD) to [out=  0,in=180] % max
-			(waveE) to [out=  0,in=180]
-			(waveF) to [out=  0,in=180] % max
-			(waveG) to [out=  0,in=180]
-			(waveH) to [out=  0,in=180] % max
-			(waveI) to [out=  0,in=180]
-			(waveZ);
-		\else
-			\node[xshift=-.100\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
-			\node[xshift= .000\paperwidth,yshift=  .016\paperheight] (waveB) at (current page.south west) {};
-			%
-			\node[xshift= .145\paperwidth,yshift=  .016\paperheight] (waveC) at (current page.south west) {};
-			\node[xshift= .330\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
-			\node[xshift= .430\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
-			\node[xshift= .630\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
-			\node[xshift= .730\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
-			\node[xshift= .930\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
-			\node[xshift=1.030\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
-			%
-			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
-			%
-			\path[fill=beamer@kthblue]
-			(waveA) to [out= 90,in=180]
-			(waveB) to [out=-12,in=192]
-			(waveC) to [out= 12,in=180]
-			(waveD) to [out=  0,in=180] % max
-			(waveE) to [out=  0,in=180]
-			(waveF) to [out=  0,in=180] % max
-			(waveG) to [out=  0,in=180]
-			(waveH) to [out=  0,in=180] % max
-			(waveI) to [out=  0,in=180]
-			(waveZ);
-		\fi
-		%
+	  \ifkthofficial
+	    %
+	    % KTH OFFICIAL
+	    %
+      \pgfmathsetmacro{\ymax}{.070}%
+      \pgfmathsetmacro{\ymin}{.035}%
+      \pgfmathsetmacro{\xcor}{.150}%
+      \pgfmathsetmacro{\radius}{.010}%
+	    \setlength{\footheight}{\ymax\paperheight}%
+  		%
+  		\path[rounded corners=\radius\paperheight,fill=beamer@kthblue]
+  		(-.100\paperwidth,-.100\paperheight) -- %to [out= 90,in=180]
+  		(-.100\paperwidth,\ymin\paperheight) -- %to [out=  0,in=180] 
+  		(\xcor\paperwidth,\ymin\paperheight) -- %to [out=  0,in=-90]
+  		(\xcor\paperwidth,\ymax\paperheight) -- %to [out=  0,in=180]
+  		(1.100\paperwidth,\ymax\paperheight) -- %to [out=  0,in=180]
+  		(1.100\paperwidth,-.100\paperheight);
+	  \else
+  		%
+  		% FLOW WAVES
+  		%
+      \pgfmathsetmacro{\ymax}{.050}%
+      \pgfmathsetmacro{\ymin}{.035}%
+	    \setlength{\footheight}{\ymax\paperheight}%
+      %
+  		\ifcrappywave
+  			\node[xshift=-.180\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
+  			\node[xshift=-.030\paperwidth,yshift= \ymax\paperheight] (waveB) at (current page.south west) {};
+  			\node[xshift= .120\paperwidth,yshift= \ymin\paperheight] (waveC) at (current page.south west) {};
+  			\node[xshift= .270\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
+  			\node[xshift= .420\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
+  			\node[xshift= .570\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
+  			\node[xshift= .720\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
+  			\node[xshift= .870\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
+  			\node[xshift=1.020\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
+  			%
+  			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
+  			%
+  			\path[fill=beamer@kthblue]
+  			(waveA) to [out= 90,in=180]
+  			(waveB) to [out=  0,in=180] % max
+  			(waveC) to [out=  0,in=180]
+  			(waveD) to [out=  0,in=180] % max
+  			(waveE) to [out=  0,in=180]
+  			(waveF) to [out=  0,in=180] % max
+  			(waveG) to [out=  0,in=180]
+  			(waveH) to [out=  0,in=180] % max
+  			(waveI) to [out=  0,in=180]
+  			(waveZ);
+  		\else
+  			\node[xshift=-.100\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
+  			\node[xshift= .000\paperwidth,yshift=  .016\paperheight] (waveB) at (current page.south west) {};
+  			%
+  			\node[xshift= .145\paperwidth,yshift=  .016\paperheight] (waveC) at (current page.south west) {};
+  			\node[xshift= .330\paperwidth,yshift= \ymax\paperheight] (waveD) at (current page.south west) {};
+  			\node[xshift= .430\paperwidth,yshift= \ymin\paperheight] (waveE) at (current page.south west) {};
+  			\node[xshift= .630\paperwidth,yshift= \ymax\paperheight] (waveF) at (current page.south west) {};
+  			\node[xshift= .730\paperwidth,yshift= \ymin\paperheight] (waveG) at (current page.south west) {};
+  			\node[xshift= .930\paperwidth,yshift= \ymax\paperheight] (waveH) at (current page.south west) {};
+  			\node[xshift=1.030\paperwidth,yshift= \ymin\paperheight] (waveI) at (current page.south west) {};
+  			%
+  			\node[xshift= .100\paperwidth,yshift=-.100\paperheight] (waveZ) at (current page.south east) {};
+  			%
+  			\path[fill=beamer@kthblue]
+  			(waveA) to [out= 90,in=180]
+  			(waveB) to [out=-12,in=192]
+  			(waveC) to [out= 12,in=180]
+  			(waveD) to [out=  0,in=180] % max
+  			(waveE) to [out=  0,in=180]
+  			(waveF) to [out=  0,in=180] % max
+  			(waveG) to [out=  0,in=180]
+  			(waveH) to [out=  0,in=180] % max
+  			(waveI) to [out=  0,in=180]
+  			(waveZ);
+  		\fi
+  		%
+  	\fi
+  	%
 		\ifdateinfootline%
 			%
 			% DATE
@@ -274,14 +297,20 @@
 			%
 			% AUTHOR TITLE -- FRAME #
 			\node[anchor=south east] (foottext) at (current page.south east) {%
-				\ifcrappywave
-					\begin{beamercolorbox}[wd=\paperwidth]{footext}%
-						\flushright{{\color{white}\scriptsize\hspace{4pt}\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+			  \ifkthofficial
+			    \begin{beamercolorbox}[wd=\paperwidth]{footext}%
+						\flushright{{\color{white}\scriptsize\hspace{4pt}\insertshortauthor:~\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
 					\end{beamercolorbox}%
-				\else
-					\begin{beamercolorbox}[wd=.760\paperwidth]{footext}%
-						\flushright{{\color{white}\scriptsize~\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
-					\end{beamercolorbox}%
+			  \else
+				  \ifcrappywave
+					  \begin{beamercolorbox}[wd=\paperwidth]{footext}%
+						  \flushright{{\color{white}\scriptsize\hspace{4pt}\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+					  \end{beamercolorbox}%
+				  \else
+					  \begin{beamercolorbox}[wd=.760\paperwidth]{footext}%
+						  \flushright{{\color{white}\scriptsize~\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+					  \end{beamercolorbox}%
+					\fi
 				\fi
 			};%
 			%
@@ -292,19 +321,35 @@
 		   \pgfmathsetmacro{\xshifttt}{.050}
 		   %
 		   % LOGO(s) centered
-		   \node[anchor=south east,xshift=-.30\paperwidth] (logot) at (current page.center) {
-		      \begin{beamercolorbox}[wd=.200\paperwidth]{logot}%
-		    	  \flushright%
-		    	  \insertlogot
-		      \end{beamercolorbox}%
-		   };
-		   \node[anchor=north east,xshift=-.30\paperwidth,yshift=0.8\baselineskip] (logob) at (current page.center) {
-		      \begin{beamercolorbox}[wd=.200\paperwidth]{logob}%
-		    	  \flushright%
-		    	  \insertlogob\\[0.8\baselineskip]
-		    	  \insertlogoc
-		      \end{beamercolorbox}%
-		   };
+		   \ifkthofficial
+		     \node[anchor=south west,xshift=-.50\paperwidth] (logot) at (current page.center) {
+		        \begin{beamercolorbox}[wd=\xcor\paperwidth]{logot}%
+		      	  \centering%
+		    	    \insertlogot
+		        \end{beamercolorbox}%
+		     };
+		     \node[anchor=north west,xshift=-.50\paperwidth] (logob) at (current page.center) {
+		        \begin{beamercolorbox}[wd=\xcor\paperwidth]{logob}%
+	  	    	  \centering %
+	  	    	  \insertlogob\\[0.8\baselineskip]
+  		    	  \insertlogoc
+  		      \end{beamercolorbox}%
+  		   };
+		   \else
+  		   \node[anchor=south east,xshift=-.30\paperwidth] (logot) at (current page.center) {
+  		      \begin{beamercolorbox}[wd=.200\paperwidth]{logot}%
+  		    	  \flushright%
+  		    	  \insertlogot
+  		      \end{beamercolorbox}%
+  		   };
+  		   \node[anchor=north east,xshift=-.30\paperwidth,yshift=0.8\baselineskip] (logob) at (current page.center) {
+  		      \begin{beamercolorbox}[wd=.200\paperwidth]{logob}%
+  		    	  \flushright%
+  		    	  \insertlogob\\[0.8\baselineskip]
+  		    	  \insertlogoc
+  		      \end{beamercolorbox}%
+  		   };
+  		 \fi
 		   %
 		\else
 			%
@@ -312,10 +357,14 @@
 		   \node[anchor=north west, xshift= .015\paperwidth,yshift= -.003\paperheight] (logot) at (current page.north west) {\insertlogot};%
 			%
 			% LOGO bottom
-			\ifcrappywave
-				\node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymax\paperheight] (logob) at (current page.south west) {\insertlogob};%
+			\ifkthofficial
+			  \node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymin\paperheight] (logob) at (current page.south west) {\insertlogob};%
 			\else
-				\node[anchor=south west, xshift= .015\paperwidth,yshift=  .004\paperheight] (logob) at (current page.south west) {\insertlogob};%
+			  \ifcrappywave
+				  \node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymax\paperheight] (logob) at (current page.south west) {\insertlogob};%
+			  \else
+				  \node[anchor=south west, xshift= .015\paperwidth,yshift=  .004\paperheight] (logob) at (current page.south west) {\insertlogob};%
+				\fi
 			\fi
 			%
 			% LOGO corner
