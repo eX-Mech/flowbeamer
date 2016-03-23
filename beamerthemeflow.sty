@@ -17,9 +17,10 @@
 %------------------------------------------------------------------------------
 % Definitions
 %
-\def\logot#1{\gdef\insertlogot{#1}}                % Top logo
-\def\logob#1{\gdef\insertlogob{#1}}                % Bottom logo
-\def\logoc{\@ifnextchar [{\@logoctwo}{\@logocone}} % Corner logo
+\def\insertlogot{} \def\logot#1{\gdef\insertlogot{#1}}                % Top logo
+\def\insertlogob{} \def\logob#1{\gdef\insertlogob{#1}}                % Bottom logo
+\def\insertlogoc{} \def\logoc{\@ifnextchar [{\@logoctwo}{\@logocone}} % Corner logo
+\def\insertheaderlogoc{}
 \def\@logoctwo[#1]#2{%
   \gdef\insertlogoc{#2}\gdef\insertheaderlogoc{#1}%
 }%
