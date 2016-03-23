@@ -322,15 +322,15 @@
 		   %
 		   % LOGO(s) centered
 		   \ifkthofficial
-		     \node[anchor=south west,xshift=-.50\paperwidth] (logot) at (current page.center) {
+		     \node[anchor=south west,xshift=.015\paperwidth] (logot) at (current page.west) {
 		        \begin{beamercolorbox}[wd=\xcor\paperwidth]{logot}%
-		      	  \centering%
+		      	  \flushleft %
 		    	    \insertlogot
 		        \end{beamercolorbox}%
 		     };
-		     \node[anchor=north west,xshift=-.50\paperwidth] (logob) at (current page.center) {
+		     \node[anchor=north west,xshift=.015\paperwidth,yshift=0.8\baselineskip] (logob) at (current page.west) {
 		        \begin{beamercolorbox}[wd=\xcor\paperwidth]{logob}%
-	  	    	  \centering %
+	  	    	  \flushleft %
 	  	    	  \insertlogob\\[0.8\baselineskip]
   		    	  \insertlogoc
   		      \end{beamercolorbox}%
