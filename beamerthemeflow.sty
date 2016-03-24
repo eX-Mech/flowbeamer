@@ -33,12 +33,18 @@
 	\gdef\insertcvrimg{\node[anchor=center] (coverimage) at (page cs:#1,#2) {#3};}%
 }
 
-
+% logical statements
 \newif\ifkthofficial    \kthofficialfalse
 \newif\ifcrappywave     \crappywavetrue
 \newif\ifdateinfootline \dateinfootlinefalse
 \newif\ifcenteredlogos  \centeredlogosfalse
 \newif\ifcleanslides    \cleanslidesfalse
+
+% options
+\DeclareOptionBeamer{kth}{\kthofficialtrue}
+\DeclareOptionBeamer{clean}{\cleanslidestrue}
+\DeclareOptionBeamer{nicewave}{\crappywavefalse}
+\ProcessOptionsBeamer
 
 %------------------------------------------------------------------------------
 % Colors
