@@ -48,4 +48,4 @@ $(AUXS): $(SRCS)
 #
 clean:
 	@echo cleaning $(main)
-	@rm -f *.ps *.dvi *.aux *.toc *.log *.out *.bbl *.blg *.nav *.snm *~ *.syntex.gz
+	@rm -f *.ps *.dvi *.aux *.auxlock *.toc *.log *.out *.bbl *.blg *.nav *.snm *~ *.syntex.gz
