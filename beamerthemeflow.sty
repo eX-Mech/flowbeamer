@@ -218,7 +218,7 @@
 	    % KTH OFFICIAL
 	    %
       \pgfmathsetmacro{\ymax}{.050}%
-      \pgfmathsetmacro{\ymin}{.025}%
+      \pgfmathsetmacro{\ymin}{.020}%
       \pgfmathsetmacro{\xcor}{.150}%
       \pgfmathsetmacro{\radius}{.010}%
 	    \setlength{\footheight}{\ymax\paperheight}%
@@ -295,9 +295,15 @@
 			%
 			% DATE
 			\node[anchor=south east] (foottext) at (current page.south east) {%
-				\begin{beamercolorbox}[wd=.760\paperwidth]{foottext}%
-					\flushright{{\color{white}\scriptsize~\insertdate}}%
-				\end{beamercolorbox}%
+			  \ifkthofficial
+			    \begin{beamercolorbox}[wd=.760\paperwidth,ht=\ymax\paperheight,right,dp=.010\paperheight]{footext}%
+					  \flushright{{\color{white}\scriptsize~\insertdate}}%
+					\end{beamercolorbox}%
+			  \else
+				  \begin{beamercolorbox}[wd=.760\paperwidth,right]{foottext}%
+					  {\color{white}\scriptsize~\insertdate}%
+				  \end{beamercolorbox}%
+				\fi
 			};%
 			%
 		\else%
@@ -305,17 +311,17 @@
 			% AUTHOR TITLE -- FRAME #
 			\node[anchor=south east] (foottext) at (current page.south east) {%
 			  \ifkthofficial
-			    \begin{beamercolorbox}[wd=\paperwidth]{footext}%
-						\flushright{{\color{white}\scriptsize\hspace{4pt}\insertshortauthor:~\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+			    \begin{beamercolorbox}[wd=.760\paperwidth,ht=\ymax\paperheight,right,dp=.010\paperheight]{footext}%
+						{\color{white}\scriptsize\hspace{4pt}\insertshortauthor:~\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}%
 					\end{beamercolorbox}%
 			  \else
 				  \ifcrappywave
-					  \begin{beamercolorbox}[wd=\paperwidth]{footext}%
-						  \flushright{{\color{white}\scriptsize\hspace{4pt}\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+					  \begin{beamercolorbox}[wd=\paperwidth,right]{footext}%
+						  {\color{white}\scriptsize\hspace{4pt}\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}%
 					  \end{beamercolorbox}%
 				  \else
-					  \begin{beamercolorbox}[wd=.760\paperwidth]{footext}%
-						  \flushright{{\color{white}\scriptsize~\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}}%
+					  \begin{beamercolorbox}[wd=.760\paperwidth,right]{footext}%
+						  {\color{white}\scriptsize~\insertshortauthor\hfill\insertshorttitle~--~\insertframenumber~of~\inserttotalframenumber}%
 					  \end{beamercolorbox}%
 					\fi
 				\fi
