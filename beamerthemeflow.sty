@@ -129,7 +129,7 @@
 \newcommand*{\titleframe}%
 {%
 	\centeredlogostrue \dateinfootlinetrue%
-	\begin{frame}%
+	\begin{frame}[label=title-frame]%
 		\usebeamertemplate*{title page}%
 	\end{frame}%
 	\addtocounter{framenumber}{-1}%
@@ -407,14 +407,6 @@
 	  \small\insertframesubtitle%
 	\end{list}
 	\vspace{.02\paperheight}%
-	%
-	%\vspace{.01\paperheight}%
-	%\hspace{.115\paperwidth}%
-	%\textbf{\insertframetitle}%
-	%\\[0.2\baselineskip]
-	%\hspace{.115\paperwidth}%
-	%\small\insertframesubtitle%
-	%\vspace{.03\paperheight}%
 }%
 
 %
