@@ -395,13 +395,26 @@
 %
 \defbeamertemplate*{frametitle}{flow}[1][]%
 {%
-	\vspace{.01\paperheight}%
-	\hspace{.115\paperwidth}%
-	\textbf{\insertframetitle}%
-	\\[0.2\baselineskip]
-	\hspace{.115\paperwidth}%
-	\small\insertframesubtitle%
-	\vspace{.03\paperheight}%
+	\begin{list}{}{%
+	  \setlength{\topsep}{.01\paperheight}%
+	  \setlength{\leftmargin}{.115\paperwidth}%
+	  \setlength{\parsep}{0.3\baselineskip}%
+	  \setlength{\partopsep}{-\parsep}%
+	  }%
+	  %
+	  \item[]\textbf{\insertframetitle}%
+	  
+	  \small\insertframesubtitle%
+	\end{list}
+	\vspace{.02\paperheight}%
+	%
+	%\vspace{.01\paperheight}%
+	%\hspace{.115\paperwidth}%
+	%\textbf{\insertframetitle}%
+	%\\[0.2\baselineskip]
+	%\hspace{.115\paperwidth}%
+	%\small\insertframesubtitle%
+	%\vspace{.03\paperheight}%
 }%
 
 %
