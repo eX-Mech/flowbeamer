@@ -395,13 +395,13 @@
 %
 \defbeamertemplate*{frametitle}{flow}[1][]%
 {%
-	\vspace{.06\paperwidth}
+	\vspace{.07\paperwidth}
 	\begin{tikzpicture}[remember picture, overlay]%
 		\node[anchor=north west,xshift=.14\paperwidth,yshift=-.03\paperheight] (frametitlenode) at (current page.north west) {
-  		   \begin{beamercolorbox}[wd=.885\paperwidth]{frametitletext}%
+  		   \begin{beamercolorbox}[wd=.84\paperwidth]{frametitletext}%
 				%
 				\textbf{\insertframetitle}%
-				\\
+				\\[.3\baselineskip]
 				\small\insertframesubtitle%
 			\end{beamercolorbox}%
 		};%
