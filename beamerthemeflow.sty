@@ -221,7 +221,7 @@
       \pgfmathsetmacro{\ymin}{.020}%
       \pgfmathsetmacro{\xcor}{.150}%
       \pgfmathsetmacro{\radius}{.010}%
-	    \setlength{\footheight}{\ymax\paperheight}%
+		\setlength{\footheight}{\ymax\paperheight}%
   		%
   		\path[rounded corners=\radius\paperheight,fill=beamer@kthblue]
   		(-.100\paperwidth,-.100\paperheight) -- %to [out= 90,in=180]
@@ -236,7 +236,7 @@
   		%
       \pgfmathsetmacro{\ymax}{.050}%
       \pgfmathsetmacro{\ymin}{.035}%
-	    \setlength{\footheight}{\ymax\paperheight}%
+	   \setlength{\footheight}{\ymax\paperheight}%
       %
   		\ifcrappywave
   			\node[xshift=-.180\paperwidth,yshift= -.100\paperheight] (waveA) at (current page.south west) {};
@@ -371,12 +371,12 @@
 			%
 			% LOGO bottom
 			\ifkthofficial
-			  \node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymin\paperheight] (logob) at (current page.south west) {\insertlogob};%
+				\node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymin\paperheight] (logob) at (current page.south west) {\insertlogob};%
 			\else
-			  \ifcrappywave
-				  \node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymax\paperheight] (logob) at (current page.south west) {\insertlogob};%
-			  \else
-				  \node[anchor=south west, xshift= .015\paperwidth,yshift=  .004\paperheight] (logob) at (current page.south west) {\insertlogob};%
+				\ifcrappywave
+					\node[anchor=south west, xshift= .015\paperwidth,yshift=  \ymax\paperheight] (logob) at (current page.south west) {\insertlogob};%
+				\else
+					\node[anchor=south west, xshift= .015\paperwidth,yshift=  .004\paperheight] (logob) at (current page.south west) {\insertlogob};%
 				\fi
 			\fi
 			%
@@ -395,18 +395,17 @@
 %
 \defbeamertemplate*{frametitle}{flow}[1][]%
 {%
-	\begin{list}{}{%
-	  \setlength{\topsep}{.01\paperheight}%
-	  \setlength{\leftmargin}{.115\paperwidth}%
-	  \setlength{\parsep}{0.3\baselineskip}%
-	  \setlength{\partopsep}{-\parsep}%
-	  }%
-	  %
-	  \item[]\textbf{\insertframetitle}%
-	  
-	  \small\insertframesubtitle%
-	\end{list}
-	\vspace{.02\paperheight}%
+	\vspace{.06\paperwidth}
+	\begin{tikzpicture}[remember picture, overlay]%
+		\node[anchor=north west,xshift=.14\paperwidth,yshift=-.03\paperheight] (frametitlenode) at (current page.north west) {
+  		   \begin{beamercolorbox}[wd=.885\paperwidth]{frametitletext}%
+				%
+				\textbf{\insertframetitle}%
+				\\
+				\small\insertframesubtitle%
+			\end{beamercolorbox}%
+		};%
+	\end{tikzpicture}%
 }%
 
 %
